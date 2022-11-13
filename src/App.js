@@ -1,25 +1,46 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import ControlPanel from './components/ControlPanel';
+import AvgLinePlot from './components/AvgLinePlot';
+import { useState, useEffect } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+
+    // Variable Initializations
+    const [currAirline, setCurrAirline] = useState("American Airline");
+    const [timeline, setTimeline] = useState([]);
+    const [avgSent, setAvgSent] = useState([]);
+
+    useEffect(() => {
+        const init = async() => {
+            const fetchedTimeline = await fetchTimeline();
+            setTimeline(fetchedTimeline);
+        }
+
+        init();
+    }, []);
+    
+    const fetchTimeline = async () => {
+        
+    }
+
+
+    const changeAirline = (airline) => {
+        setCurrAirline(airline.target.value);
+    }
+
+    return (
+        <div className="container">
+            <Header />
+
+            <div className="subcontainer">
+                <ControlPanel changeAirline={changeAirline} />
+            </div>
+
+            <AvgLinePlot airline={currAirline} timeline={timeline} avgSent={avgSent} />
+
+        </div>
+    );
 }
 
 export default App;
