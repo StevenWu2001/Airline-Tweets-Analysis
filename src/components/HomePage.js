@@ -49,12 +49,12 @@ const HomePage = ({currAirline, timeline, avgSent, posCount, negCount, sma, boll
                     bollingerDown={bollingerLow}
                 />
 
-                <WordFreqPlot
+                {/* <WordFreqPlot
                     airline={currAirline}
                     timeline={timeline}
                     selectedWords={selectedWords}
                     wordFreq={wordFreq}
-                />
+                /> */}
 
                 <PosNegCountPlot
                     airline={currAirline}
