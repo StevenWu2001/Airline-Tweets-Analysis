@@ -10,72 +10,54 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import React, { useState, useEffect } from "react";
-import Hammer from "hammerjs";
-import * as Zoom from "chartjs-plugin-zoom"
+import zoomPlugin from "chartjs-plugin-zoom"
+import panPlugin from "chartjs-plugin-zoom"
 
 ChartJS.register(
     CategoryScale,
     LinearScale,
     LineElement,
     PointElement,
-    Zoom,
+    panPlugin,
+    zoomPlugin,
     Title,
     Tooltip,
     Legend
 );
 
-const AvgLinePlot = ({airline, timeline, avgSent, sma, bollingerUp, bollingerDown}) => {
+const PosNegCountPlot = ({airline, timeline, posCount, negCount}) => {
     const [chartData, setChartData] = useState({
         datasets: [],
     });
 
     const [chartOptions, setChartOptions] = useState({});
+
     useEffect(() => {
         setChartData({
             labels: timeline,
             datasets: [
                 {
-                    label: "7 Days SMA",
-                    data: sma[airline],
-                    borderColor: "rgb(180, 67, 78)",
+                    label: "Number of Positive Tweets",
+                    data: posCount[airline],
+                    borderColor: "rgb(0, 200, 50)",
+                    backgroundColor: "rgb(0, 200, 50)",
                     pointRadius: 0,
                     pointHitRadius: 8,
-                    backgroundColor: "rgb(180, 67, 78)",
                 },
 
                 {
-                    label: "Z-Average Sentiment",
-                    data: avgSent[airline],
-                    borderColor: "rgba(53, 162, 235, 0.4)",
+                    label: "Number of Positive Tweets",
+                    data: negCount[airline],
+                    borderColor: "rgb(255, 50, 50)",
+                    backgroundColor: "rgb(255, 50, 50)",
                     pointRadius: 0,
                     pointHitRadius: 8,
-                    backgroundColor: "rgba(53, 162, 235, 0.4)",
-                },
-
-                {
-                    label: "Upper Bollinger Band",
-                    data: bollingerUp[airline],
-                    borderColor: "rgba(115, 115, 115, 0.4)",
-                    pointRadius: 0,
-                    pointHitRadius: 8,
-                    backgroundColor: "rgba(115, 115, 115, 0.4)",
-                },
-
-                {
-                    label: "Lower Bollinger Band",
-                    data: bollingerDown[airline],
-                    borderColor: "rgba(115, 115, 115, 0.4)",
-                    pointRadius: 0,
-                    pointHitRadius: 8,
-                    backgroundColor: "rgba(115, 115, 115, 0.4)",
-                },
-
+                }
             ],
         });
         setChartOptions({
-            type: 'line',
             responsive: true,
-            plugins: { 
+            plugins: {  
                 legend: {
                     position: "top",
                 },
@@ -100,7 +82,7 @@ const AvgLinePlot = ({airline, timeline, avgSent, sma, bollingerUp, bollingerDow
                 }
             },
         });
-    }, [timeline, airline, avgSent, sma, bollingerUp, bollingerDown]);
+    }, [airline, timeline, posCount, negCount]);
 
     return (
         <div className="App">
@@ -109,4 +91,4 @@ const AvgLinePlot = ({airline, timeline, avgSent, sma, bollingerUp, bollingerDow
     );
 }
 
-export default AvgLinePlot;
+export default PosNegCountPlot;
