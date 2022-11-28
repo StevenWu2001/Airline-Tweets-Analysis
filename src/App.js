@@ -50,49 +50,49 @@ const App = () => {
         // Fetch Functions
         const fetchTimeline = async () => {
             console.log("Here");
-            const response = await fetch(server + '/timeline', { mode: 'no-cors'});
+            const response = await fetch(server + '/timeline');
             const data = await response.json();
             return data;
         }
 
         const fetchAvgSent = async () => {
-            const response = await fetch(server + '/nAvgSent', { mode: 'no-cors'});
+            const response = await fetch(server + '/nAvgSent');
             const data = await response.json();
             return data;
         }
 
         const fetchSMA = async () => {
-            const response = await fetch(server + '/sma', { mode: 'no-cors'});
+            const response = await fetch(server + '/sma');
             const data = await response.json();
             return data;
         }
 
         const fetchBollingerUp = async () => {
-            const response = await fetch(server + '/bollingerUpper', { mode: 'no-cors'});
+            const response = await fetch(server + '/bollingerUpper');
             const data = await response.json();
             return data;
         }
 
         const fetchBollingerDown = async () => {
-            const response = await fetch(server + '/bollingerLower', { mode: 'no-cors'});
+            const response = await fetch(server + '/bollingerLower');
             const data = await response.json();
             return data;
         }
 
         const fetchPosCount = async () => {
-            const response = await fetch(server + '/posCount', { mode: 'no-cors'});
+            const response = await fetch(server + '/posCount');
             const data = await response.json();
             return data;
         }
 
         const fetchNegCount = async () => {
-            const response = await fetch(server + '/negCount', { mode: 'no-cors'});
+            const response = await fetch(server + '/negCount');
             const data = await response.json();
             return data;
         }
 
         const fetchWordFreq= async () => {
-            const response = await fetch(server + '/wordFreq', { mode: 'no-cors'});
+            const response = await fetch(server + '/wordFreq');
             const data = await response.json();
             return data;
         }
