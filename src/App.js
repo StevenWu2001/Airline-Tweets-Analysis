@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 
 const App = () => {
     // Loading Page Setup
+    const server = "https://glacial-bastion-31867.herokuapp.com/";
     const [loading, setLoading] = useState(false);
 
     // Variable Initializations
@@ -49,49 +50,49 @@ const App = () => {
         // Fetch Functions
         const fetchTimeline = async () => {
             console.log("Here");
-            const response = await fetch('/timeline');
+            const response = await fetch(server + '/timeline');
             const data = await response.json();
             return data;
         }
 
         const fetchAvgSent = async () => {
-            const response = await fetch('/nAvgSent');
+            const response = await fetch(server + '/nAvgSent');
             const data = await response.json();
             return data;
         }
 
         const fetchSMA = async () => {
-            const response = await fetch('/sma');
+            const response = await fetch(server + '/sma');
             const data = await response.json();
             return data;
         }
 
         const fetchBollingerUp = async () => {
-            const response = await fetch('/bollingerUpper');
+            const response = await fetch(server + '/bollingerUpper');
             const data = await response.json();
             return data;
         }
 
         const fetchBollingerDown = async () => {
-            const response = await fetch('/bollingerLower');
+            const response = await fetch(server + '/bollingerLower');
             const data = await response.json();
             return data;
         }
 
         const fetchPosCount = async () => {
-            const response = await fetch('/posCount');
+            const response = await fetch(server + '/posCount');
             const data = await response.json();
             return data;
         }
 
         const fetchNegCount = async () => {
-            const response = await fetch('/negCount');
+            const response = await fetch(server + '/negCount');
             const data = await response.json();
             return data;
         }
 
         const fetchWordFreq= async () => {
-            const response = await fetch('/wordFreq');
+            const response = await fetch(server + '/wordFreq');
             const data = await response.json();
             return data;
         }
