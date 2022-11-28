@@ -33,14 +33,14 @@ const App = () => {
             const fetchedSMA = await fetchSMA();
             const fetchedBollingerUp = await fetchBollingerUp();
             const fetchedBollingerDown = await fetchBollingerDown();
-            //const fetchedWordFreq = await fetchWordFreq();
+            const fetchedWordFreq = await fetchWordFreq();
             setTimeline(fetchedTimeline);
             setAvgSent(fetchedAvgSent);
             setPosCount(fetchedPosCount);
             setNegCount(fetchedNegCount);
             setBollingerUp(fetchedBollingerUp);
             setBollingerDown(fetchedBollingerDown);
-            //setWordFreq(fetchedWordFreq);
+            setWordFreq(fetchedWordFreq);
             setSMA(fetchedSMA);
 
             setLoading(false)
