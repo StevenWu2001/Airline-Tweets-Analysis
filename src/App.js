@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 
 const App = () => {
     // Loading Page Setup
-    const server = "https://glacial-bastion-31867.herokuapp.com/";
+    const server = "https://glacial-bastion-31867.herokuapp.com";
     const [loading, setLoading] = useState(false);
 
     // Variable Initializations
