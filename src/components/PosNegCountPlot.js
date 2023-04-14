@@ -46,7 +46,7 @@ const PosNegCountPlot = ({airline, timeline, posCount, negCount}) => {
                 },
 
                 {
-                    label: "Number of Positive Tweets",
+                    label: "Number of Negative Tweets",
                     data: negCount[airline],
                     borderColor: "rgb(255, 50, 50)",
                     backgroundColor: "rgb(255, 50, 50)",
